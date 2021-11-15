@@ -13,7 +13,8 @@ route.post("/signup",(req,res)=>{
 });
 
 route.get("/signup",(req,res)=>{
-    res.send("Hello")
+    res.send("Hello");
+    console.log('MongoDB Atlas Connected!');
 });
 
 module.exports = route;
