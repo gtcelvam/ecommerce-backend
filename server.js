@@ -18,7 +18,7 @@ var URL = process.env.Access_Url;
 mongoose.connect(URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true},()=>{
-    console.log("Connected with DB...")})
+    console.log("Connected with DB..")});
 //Body Parser
 app.use(express.json());
 //Secure transition
