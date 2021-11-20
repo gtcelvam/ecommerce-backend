@@ -22,12 +22,16 @@ mongoose.connect(URL,{
 //Body Parser
 app.use(express.json());
 //Secure transition
+app.get("/",(req,res)=>{
+    res.status(200).json("Working fine")
+})
+
 app.use(cors());
-app.use("/app/user",userRouter);
-app.use("/app/auth",authRouter);
-app.use("/app/product",productRouter);
-app.use("/app/cart",cartRouter);
-app.use("/app/order",orderRouter);
+app.use("/api/user",userRouter);
+app.use("/api/auth",authRouter);
+app.use("/api/cart",cartRouter);
+app.use("/api/product",productRouter);
+app.use("/api/order",orderRouter);
 var port = process.env.PORT || 2000
 app.listen(port,()=>{
     console.log("Server connected succesfully");
