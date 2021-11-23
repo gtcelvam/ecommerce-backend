@@ -8,6 +8,7 @@ const authRouter = require("./router/auth");
 const productRouter = require("./router/product");
 const cartRouter = require("./router/cart");
 const orderRouter = require("./router/order");
+const categoryRouter = require("./router/category");
 
 //env file
 dotenv.config();
@@ -32,7 +33,8 @@ app.use("/api/auth",authRouter);
 app.use("/api/cart",cartRouter);
 app.use("/api/product",productRouter);
 app.use("/api/order",orderRouter);
-var port = process.env.PORT || 2000
+app.use("/api/category",categoryRouter);
+var port = process.env.PORT || 2000;
 app.listen(port,()=>{
     console.log("Server connected succesfully");
 })
