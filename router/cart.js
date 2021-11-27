@@ -36,7 +36,7 @@ cartRoute.delete("/:id",verifyAndAuthenticate,async (req,res)=>{
 //Get User Cart
 cartRoute.get("/find/:userId", async (req,res)=>{
     try {
-        var cart = await schemaTemplate.findOne({userId : req.params.userId});
+        var cart = await schemaTemplate.find({userId : req.params.userId}).sort({createdAt : -1});
         res.status(200).json(cart);
     } catch (error) {
         res.status(500).json(error);
