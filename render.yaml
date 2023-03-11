@@ -1,0 +1,4 @@
+services:
+  - name: web
+    buildCommand: npm install && npm run start
+    startCommand: node server.js
