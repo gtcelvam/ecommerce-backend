@@ -3,7 +3,7 @@ const schemaTemplate = require("../models/Order");
 const {verifyToken,verifyAndAuthenticate,verifyAndAdmin} = require("./verifyToken");
 
 //Create order
-orderRoute.post('/',verifyToken, async (req,res)=>{
+orderRoute.post('/', verifyToken, async (req, res) => {
     var newOrder = new schemaTemplate(req.body);
     try {
         var orderData = await newOrder.save();
@@ -11,7 +11,7 @@ orderRoute.post('/',verifyToken, async (req,res)=>{
     } catch (error) {
         res.status(500).json(error);
     }
-})
+});
 
 //Update order
 orderRoute.put("/:id",verifyAndAdmin,async (req,res)=>{
