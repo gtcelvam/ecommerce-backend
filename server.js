@@ -15,6 +15,16 @@ dotenv.config();
 var URL = process.env.Access_Url;
 //process.env.Access_Url ;
 
+// Suppress DeprecationWarnings related to collection.ensureIndex()
+process.on('warning', (warning) => {
+  if (warning.name === 'DeprecationWarning' && warning.message.includes('collection.ensureIndex')) {
+    // Suppress the warning
+    return;
+  }
+  // Handle other warnings as normal
+  console.warn(warning);
+});
+
 //DB Connection
 mongoose.connect(URL,{
     useNewUrlParser: true,
