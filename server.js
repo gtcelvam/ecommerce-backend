@@ -26,10 +26,19 @@ process.on('warning', (warning) => {
 });
 
 //DB Connection
-mongoose.connect(URL,{
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(URL,{
     useNewUrlParser: true,
-    useUnifiedTopology: true},()=>{
-    console.log("Connected with DB..")});
+      useUnifiedTopology: true
+    });
+    console.log(`MongoDB Connected : ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
+
 //Body Parser
 app.use(express.json());
 //Secure transition
@@ -45,6 +54,11 @@ app.use("/api/product",productRouter);
 app.use("/api/order",orderRouter);
 app.use("/api/category",categoryRouter);
 var port = process.env.PORT || 2000;
-app.listen(port,()=>{
-    console.log("Server connected succesfully");
+
+//Connect to the database before listening
+connectDB().then(() => {
+    app.listen(port,()=>{
+        console.log("Server connected succesfully");
+    })
 })
+
