@@ -43,7 +43,7 @@ const connectDB = async () => {
 app.use(express.json());
 //Secure transition
 app.get("/",(req,res)=>{
-    res.status(200).json("Working fine")
+  res.status(200).json({message :  "Working fine"})
 })
 
 app.use(cors());
