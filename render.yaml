@@ -1,6 +1,6 @@
 services:
   - name: web
     type: web
-    runtime: nodejs14
+    runtime: nodejs16
     buildCommand: npm install && npm run start
     startCommand: node server.js
