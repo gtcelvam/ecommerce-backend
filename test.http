@@ -1,9 +1,0 @@
-POST http://127.0.0.1:2000/app/signup
-Content-Type: application/json
-
-{
-    "name" : "Ts",
-    "username" : "thselvan",
-    "email" : "gtcelan@gmail.com",
-    "password" : "gtcelvam"
-}
